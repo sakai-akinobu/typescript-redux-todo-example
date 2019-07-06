@@ -2,6 +2,7 @@
   "name": "typescript-redux-todo-example",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "build": "npx webpack --config webpack.config.js",
