@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "compile": "npx tsc --noEmit",
     "build": "npx webpack --config webpack.config.js",
     "start": "npx webpack-dev-server"
   },
