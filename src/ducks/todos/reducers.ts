@@ -32,6 +32,10 @@ export function reducer(state: State = initialState, action: Actions): State {
       });
     case types.ADD_TODO:
       return produce(state, draft => {
+        if (action.payload.title === '') {
+          return state;
+        }
+
         draft.todos.push({
           id: todoId++,
           title: action.payload.title,
