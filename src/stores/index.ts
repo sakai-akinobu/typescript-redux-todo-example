@@ -5,10 +5,12 @@ import {
 
 import {reducer as todos} from '../ducks/todos/reducers';
 
-const combinedReducers = combineReducers({
+const combinedReducer = combineReducers({
   todos,
 });
 
+export type Store = ReturnType<typeof combinedReducer>;
+
 export function createStore() {
-  return _createStore(combinedReducers);
+  return _createStore(combinedReducer);
 }
