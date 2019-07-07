@@ -3,11 +3,13 @@ import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 
 import TodoForm from '../../components/todos/TodoForm';
+import RemoveCompletedButton from '../../components/todos/RemoveCompletedButton';
 import TodoList from '../../components/todos/TodoList';
 import {
   syncTitle,
   addTodo,
   toggleCompleted,
+  removeCompletedTodos,
 } from '../../ducks/todos/actionCreators';
 import {Todo} from '../../ducks/todos/reducers';
 import {Store} from '../../stores';
@@ -19,6 +21,7 @@ type Props = {
     syncTitle: typeof syncTitle,
     addTodo: typeof addTodo,
     toggleCompleted: typeof toggleCompleted,
+    removeCompletedTodos: typeof removeCompletedTodos,
   },
 };
 
@@ -30,6 +33,7 @@ function App({title, todos, actions}: Props) {
         syncTitle={actions.syncTitle}
         addTodo={actions.addTodo}
       />
+      <RemoveCompletedButton removeCompletedTodos={actions.removeCompletedTodos} />
       <TodoList
         todos={todos}
         toggleCompleted={actions.toggleCompleted}
@@ -48,6 +52,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
     syncTitle: (title: string) => dispatch(syncTitle(title)),
     addTodo: (title: string) => dispatch(addTodo(title)),
     toggleCompleted: (id: number) => dispatch(toggleCompleted(id)),
+    removeCompletedTodos: () => dispatch(removeCompletedTodos()),
   },
 });
 

@@ -20,3 +20,9 @@ export function toggleCompleted(id: number) {
     payload: {id},
   };
 }
+
+export function removeCompletedTodos() {
+  return {
+    type: types.REMOVE_COMPLETED_TODOS,
+  };
+}

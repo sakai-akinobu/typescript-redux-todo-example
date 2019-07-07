@@ -48,6 +48,10 @@ export function reducer(state: State = initialState, action: Actions): State {
           todo.completed = !todo.completed;
         }
       });
+    case types.REMOVE_COMPLETED_TODOS:
+      return produce(state, draft => {
+        draft.todos = draft.todos.filter(todo => !todo.completed);
+      });
     default:
       return state;
   }
